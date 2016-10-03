@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.*;
 @EnableAutoConfiguration
 public class MainController {
 
+    //Index is the global base entry point on the web, Entirely preferential.
     @RequestMapping("/")
+    //RestController automatically adds @ResponseBody
     @ResponseBody
     String home() {
         return "Hello World!";
