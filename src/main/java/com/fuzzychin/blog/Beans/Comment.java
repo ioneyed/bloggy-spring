@@ -1,39 +1,45 @@
 package com.fuzzychin.blog.Beans;
-
-
+//Change Beans to bean
 import org.springframework.data.annotation.Id;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Table;
 
-@Table(name="Comments")
+@Table(name="comments")
 @Entity
 public class Comment {
-
-
+    
     @Id
     @GeneratedValue
     long id;
 
+    //There is a @NotNull
     @Column(nullable = false)
     private String body;
 
+    //This needs to be mapped from comment to user
+    //@ManyToOne for example.
     @Column(nullable = false)
     private User user;
 
+    //This should be temporal and/or DateTime/Long instead of string.
     @Column(nullable = false)
-    private  String createdOn;
-
+    private String createdOn;
+    
+    //This should be temporal and/or DateTime/Long instead of string.
     @Column(nullable = false)
     private  String modifiedOn;
-
+    
+    //This should be temporal and/or DateTime/Long instead of string.
     @Column(nullable = false)
     private  String deletedOn;
 
-    protected Comment(){};
+    //This should be public tbh.
+    //protected Comment(){};
+    public Comment(){}
 
+    //generally not needed to create the constructor before its needed.
     private Comment(long id, String body, User user, String createdOn, String modifiedOn, String deletedOn) {
         this.id = id;
         this.body = body;
